@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" /> <!-- кодировка -->
+    <title>Lab1</title>
+    <link href="style.css" rel="stylesheet" type="text/css"/>
+    <link rel="shortcut icon" href="smorc.png" type="image/png">
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+</head>
+    <body>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th colspan="2" class="table"> <!-- заголовок -->
+                        <div class="header-text">Митрофанов Егор Юрьевич, P3214, вариант 2512 </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="cnvs"> <!-- здесь будет график -->
+                    <td class="cnvs" colspan="2">
+                        <canvas id="canvas"></canvas>
+                    </td>
+                </tr>
+                <tr> <!-- здесь будет выбор из списка X -->
+                    <td class="table">
+                        <div id="label_x">X = -2</div>
+                    </td>
+                    <td class="table">
+                        <select id="Select_x" onchange="set_x_value()">
+                            <option value="-2" id="opm2">-2</option>
+                            <option value="-1.5" id="opm1_5">-1.5</option>
+                            <option value="-1" id="opm1">-1</option>
+                            <option value="-0.5" id="opm0_5">-0.5</option>
+                            <option value="0" id="op0">0</option>
+                            <option value="0.5" id="op0_5">0.5</option>
+                            <option value="1" id="op1">1</option>
+                            <option value="1.5" id="op1_5">1.5</option>
+                            <option value="2" id="op2">2</option>
+                        </select>
+                    </td>
+                </tr>
+
+                <tr> <!-- здесь будет ввод Y -->
+                    <td class="table">
+                        <div id="label_y">Y = 0</div>
+                    </td>
+                    <td class="table">
+                       <input type="text" id="y_param" name="y">
+                    </td>
+                </tr>
+
+                <tr> <!-- здесь будет выбор по кнопке R -->
+                    <td class="table">
+                        <div id="label_r">R = 3</div>
+                    </td>
+                    <td class="table">
+                        <button type="button" value="1" id="b1" name="X" onclick="set_R_value(id)">1</button>
+                        <button type="button" value="1.5" id="b1_5" name="X" onclick="set_R_value(id)">1.5</button>
+                        <button type="button" value="2" id="b2" name="X" onclick="set_R_value(id)">2</button>
+                        <button type="button" value="2.5" id="b2_5" name="X" onclick="set_R_value(id)">2.5</button>
+                        <button type="button" value="3" id="b3" name="X" onclick="set_R_value(id)">3</button>
+                    </td>
+                </tr>
+
+                <tr> <!-- здесь будет кнопка подтверждения -->
+                    <td class="table">
+                        <label>Ввод значений</label>
+                    </td>
+                    <td>
+                        <form action="treatment.php" method="GET">
+                            <button type="button" id="button" name="out_button">Ввод параметров</button>
+                        </form>
+                    </td>
+                </tr>
+
+                <tr> <!-- здесь будут использованные значения и время -->
+                    <td colspan="2">
+                        <table class="result-table">
+                            <thead>
+                                <td>X</td>
+                                <td>Y</td>
+                                <td>R</td>
+                                <td>RESULT</td>
+                                <td>Current time</td>
+                                <td>Computation time</td>
+                            </thead>
+                            <tbody id="table_out">
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <script type="text/javascript" src="Code_js/draw.js"></script>
+        <script type="text/javascript" src="Code_js/Valid.js"></script>
+        <script type="text/javascript" src="Code_js/get_out.js"></script>
+        <script type="text/javascript" src="Code_js/addToTable.js"></script>
+    </body>
+</html>
