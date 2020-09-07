@@ -1,10 +1,10 @@
 let data_cookies="";
 function getData(){
     const xhr = new XMLHttpRequest();
-    let url = new URL('http://localhost:7070/treatment.php');
-    url.searchParams.set('x', value_X);
-    url.searchParams.set('y', value_Y);
-    url.searchParams.set('r', R);
+    // let url = new URL('http://localhost:7070/treatment.php');
+    // url.searchParams.set('x', value_X);
+    // url.searchParams.set('y', value_Y);
+    // url.searchParams.set('r', R);
 
     xhr.onreadystatechange = function() {
         if (xhr.readyState === XMLHttpRequest.DONE) {
@@ -16,7 +16,7 @@ function getData(){
             addToTable();
         }
     }
-    xhr.open('GET', url);
+    xhr.open('GET', 'treatment.php?'+'x='+value_X+'&y='+value_Y+'&r='+R);
     xhr.send();
 }
 
