@@ -5,21 +5,23 @@
     $x = $_GET['x'];
     $y = $_GET['y'];
     $out = "";
-    $flag = 0;
-    $answer = "";
+    $flag = true;
+    $response = "";
+
     //провека на присутсвие данных
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         if (!preg_match('/^-?\d+(\.|,)?\d*$/', $r) ||
             !preg_match('/^-?\d+(\.|,)?\d*$/', $x) ||
             !preg_match('/^-?\d+(\.|,)?\d*$/', $y))
-            $flag = 1;
+            $flag = false;
+
         //валидация принятых данных
         if($x < -2 || $x > 2)
-            $flag = 1;
+            $flag = false;
         if($r< 1 || $r>3)
-            $flag = 1;
+            $flag = false;
         if($y<-5 || $y>5)
-            $flag = 1;
+            $flag = false;
 
         //провекра на вхождение в область
         if((($x*$x + $y*$y) <= $r*$r/4 && $x >=0 && $y <= 0)||
@@ -30,19 +32,19 @@
             $out = "Не входит";
         }
 
-        $answer .= $flag;
-        $answer .= ";";
-        $answer .= $x;
-        $answer .= ";";
-        $answer .= $y;
-        $answer .= ";";
-        $answer .= $r;
-        $answer .= ";";
-        $answer .= $out;
-        $answer .= ";";
-        $answer .= date("Y-m-d H:i:s");
-        $answer .= ";";
-        $answer .= microtime()-$start_time;
-        $answer .= "/";
-        echo $answer;
+        $response .= $flag;
+        $response .= ";";
+        $response .= $x;
+        $response .= ";";
+        $response .= $y;
+        $response .= ";";
+        $response .= $r;
+        $response .= ";";
+        $response .= $out;
+        $response .= ";";
+        $response .= date("Y-m-d H:i:s");
+        $response .= ";";
+        $response .= microtime()-$start_time;
+        $response .= "/";
+        echo $response;
     }

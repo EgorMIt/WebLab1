@@ -11,9 +11,14 @@
     text-align: center;
 }
 table {
+    border-radius: 100px;
+
     font-family: "fantasy";
     font-size: 14px;
-    width: 100%;
+
+    width: 70%;
+    margin: auto;
+
     text-align: center;
     border-collapse: collapse;
     border-top: 5px ridge #F1692F;
@@ -42,4 +47,7 @@ th:hover {
 }
 td:hover {
     font-size: 20px;
+}
+.active {
+ background: #F1692F;
 }
