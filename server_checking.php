@@ -5,6 +5,7 @@
     $x = $_GET['x'];
     $y = $_GET['y'];
     $out = "";
+    $maximum = 17;
     $flag = true;
     $response = "";
 
@@ -16,19 +17,21 @@
             $flag = false;
 
         //валидация принятых данных
-        if($x < -2 || $x > 2)
+        if ($x < -2 || $x > 2)
             $flag = false;
-        if($r< 1 || $r>3)
+        if ($r < 1 || $r > 3)
             $flag = false;
-        if($y<-5 || $y>5)
+        if ($y < -5 || $y > 5)
+            $flag = false;
+        if (strlen($y) > $maximum || strlen($x) > $maximum || strlen($r) > $maximum)
             $flag = false;
 
         //провекра на вхождение в область
-        if((($x*$x + $y*$y) <= $r*$r/4 && $x >=0 && $y <= 0)||
-            ($y+2*$x<=$r && $x>=0 && $y>=0)||
-            ($x<=0 && $y<=0 && $x>=(-1)*$r/2 && $y>= (-1)*$r)){
+        if ((($x * $x + $y * $y) <= $r * $r / 4 && $x >= 0 && $y <= 0) ||
+            ($y + 2 * $x <= $r && $x >= 0 && $y >= 0) ||
+            ($x <= 0 && $y <= 0 && $x >= (-1) * $r / 2 && $y >= (-1) * $r)) {
             $out = "Входит";
-        }else{
+        } else {
             $out = "Не входит";
         }
 
@@ -44,7 +47,8 @@
         $response .= ";";
         $response .= date("Y-m-d H:i:s");
         $response .= ";";
-        $response .= microtime()-$start_time;
+        $response .= microtime() - $start_time;
         $response .= "/";
         echo $response;
+
     }

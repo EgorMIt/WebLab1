@@ -21,7 +21,7 @@ function getData(){
 }
 
 function php_response(param) {
-    if(param.split("/")[0].split(";")[0] === 'false'){
+    if(param.split("/")[0].split(";")[0] == ""){
         alert("Ошибка в отправленных данных");
     }else{
         drawPoint(value_X * 10, value_Y * 10, value_R * 10);
